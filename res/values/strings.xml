@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JumbleBee</string>
+    <string name="hello">JumbleBeeActivity</string>
+    <string name="questionText">Enter the Unjumbled word</string>
+    <string name="check">Check</string>
+    <string name="count">See your score here as you progress</string>
+    <string name="blank"></string>
+    <string name="buttonText"></string>
+    <string name="button">Click to play JUmbleBee</string>
+    <string name="high">High Score: </string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="level">Choose the difficulty level</string>
+    <string name="jumble">A perfext test for your unjumbling skills</string>
+    <string name="splash_jumble"></string>
+    <string name="footer"></string>
+    <string name="play">Play</string>
+    <string name="help">Help</string>
+    <string name="credits">Credits</string>
+</resources>

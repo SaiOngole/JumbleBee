@@ -1,0 +1,138 @@
+commit 95a2e7bd7f818922542e364ddb0b77044fb1a853
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Sat Nov 19 15:36:25 2011 +0530
+
+    Added 65 new words to the data base.
+    Gotta enter a lot more words approx 1000 and then write the code for
+    automated jumbling of the words.
+    Only this is the major part of the program.
+    Minor ones are finding a nice back ground, custom button and icon
+
+commit f1bb111be19e2fadefc9b19e781e4a0a845ed979
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Sat Nov 19 12:44:12 2011 +0530
+
+    Changed the icon
+
+commit aca500eaddcc7d11a78c55118cbc4bddd44684c6
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Sat Nov 19 12:43:00 2011 +0530
+
+    Dont knw what the current status of the application is. Hope everythg is
+    fine. Changed the icon which actually sucks! :p
+
+commit 80a9a48d18183c6ad3e32926f91d21c1de47991d
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Fri Nov 18 11:01:30 2011 +0530
+
+    The correct answer is displayed!
+
+commit d61471bf254854f6a82a68b3dedc7e1b7537837a
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Fri Nov 18 10:30:47 2011 +0530
+
+    The text box will auto clear and the problem with the word problems has been
+    fixed :p
+
+commit b19974064fe4fa159fcc6a1e2b3396ac3b375d09
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Fri Nov 18 07:28:25 2011 +0530
+
+    Selected for the final event!
+    Gotta start building!
+
+commit 0ed7fb1c319992da2b2d87c060e6dec9a97821e5
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Nov 14 19:21:09 2011 +0530
+
+    I dont have anyt clue about what has changed but i hope the entire
+    application is working fine!
+
+commit fb80cb8887b5584485f587e3b4a52279a7da6c37
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Tue Nov 1 19:57:36 2011 +0530
+
+    App sent!
+
+commit 6dc0fb9f23179973705b7cce34c51b6ee116f871
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Tue Nov 1 19:04:48 2011 +0530
+
+    The final app is done with hundred words.
+    Testin to be done. Hope i wont have any run time errors.
+
+commit 018f43f7cab640a1b0081e3c9204e9e383d0bc18
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Tue Nov 1 05:37:02 2011 +0530
+
+    The entire app is working.
+    Gotta update the words and mail it in the evening :)
+
+commit 403207750a47e7e3d12f4bc6c4c5269151746d10
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Oct 31 16:19:13 2011 +0530
+
+     The idea for increasing the number of words is to have three statements
+     generating random numbers.
+     Switching between them can be done by using a counter with a limit of
+     approx 10.
+
+commit c67136346db638da9410ae8af0521747c7880a2c
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Oct 31 16:06:00 2011 +0530
+
+    Problem with the scoring system successfully completed.
+
+commit 13895b9d60fce43ffeb2cd0c1adb678950cd7703
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Oct 31 14:27:58 2011 +0530
+
+    Score count also provided and the app closes well.
+    No bugs so far.
+    Major thing that is left is to jumble the words and have more number of
+    words.
+    Minor changes like the background, text, etc also need to be done.
+
+commit b2ae9f825ad0e9bf27e090ada03c4575ba3768ac
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Oct 31 13:58:52 2011 +0530
+
+    Option to close the app provided.
+    Good start in the college!! :)
+
+commit b69d327b5604856291e706b32f3b2986ed9fc046
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Oct 31 13:46:02 2011 +0530
+
+    An option to quit and to retry is being given in the app.
+    Hope this works fine.
+
+commit 7c1de956355cf304de1c945212f06df22c52fdd5
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Oct 31 05:49:13 2011 +0530
+
+     Made sure that the app is working fine.
+     Happy for workin in the morning :)
+    Need atleast another 6-7 working hours to finish this.
+    That will be an approximate of 10 working apps for a fully functional app.!
+
+commit 0bf270b133c9289fb342e2a427ce2a5231558a6f
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Oct 31 05:42:38 2011 +0530
+
+    The editText will clear itself on a click.
+    Bye Bye backspace! :p
+
+commit 98c948e018853fd6a51e47d4ecfddb80c1503d9a
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Mon Oct 31 05:20:44 2011 +0530
+
+    Finally have a working app! :)
+    Now gotta write the code to randomly jumble the words and also
+    give the user a chance to try again and quit.
+
+commit 4a9bc09ccf5610a9bd8b6ce0950e623394458aa1
+Author: vamsi Krishna <vamsikrishnaongole@gmail.com>
+Date:   Sun Oct 30 16:50:31 2011 +0530
+
+    This is a brand new project. Gotta finish this by tomorrow.

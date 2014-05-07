@@ -1,0 +1,244 @@
+package com.vamsi.JumbleBee;
+
+
+import java.util.Random;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.content.res.Configuration;
+
+
+public class JumbleBeeActivity extends Activity {
+		
+	private static String[] word_list = {"relative","clock","sabotage","quick","velocity","windows","official","drive","memory","basic","shift",
+		"transportation","assistant","mileage","fuel","mechanic","dispatch","garage","sweep","association","emergency","roundabout",
+		"student","school","special","route","seatbelt","wheelchair","discipline","teacher","attorney","awesome","danger","batsman",
+		"floods","switch","charger","application","development","android","machine","surface","turbine","artificial","networks",
+		"combustion","retardation","tension","inertia","pigments","photosynthesis","specifications","instructions","version",
+		"technology","manifest","agenda","publicity","shopping","transaction","mammoth","building","knuckle","activity","manager",
+		"jumble","jeopardy","psychiatrist","difficulty","install","automatic","upload","twitter","independence","republic",
+		"kingdom","pirates","island","olympics","sanitary","country","indonesia","flying","port","indicator","controller",
+		"sensor","insulator","conductor","diode","transistor","circuit","kinematics","dynamics","friction","pressure","volume",
+		"declaration","console","debug","problems","lucky","yesterday","whole","series","cricket","philosophy","anthropologist",
+		"hospital","waiting","philanthropy","master","executive","consultation","graduate","examination","compatible","heavy","animal",
+		"warning","package","courier","professional","signals","frequency","kids","electrify","indolence","confidence","virtual",
+		"adjective","conjunction","swing","attitude","experiment","scientific","republic","soverign","capital","secular","diverse",
+		"history","invent","discover","fashion","travelling","clock","aptitude","percentage","genius","dominion","donnish",
+		"doodle","dormant","execrable","egalitarian","servile","slime","pragmatic","admonish","contour","abjure",
+		"abode","abolition","accelerator","rocket","propulsion","aerodynamics","hypersonic","synchronise","comparator",
+		"chipset","cooker","bubble","constitution","institute","sphygmomanometer","hydraulic","pneumatic","encryption","effort",
+		"embryo","pancreas","culture","countdown","paragraph","working","kingfisher","ostrich","automobile","optimization",
+		"numerical","meteor","galaxy","celestial","struggle","freedom","advertisement","campaign","record","dictionary"	,
+		"revolution","embassy","royal","canine","statistics","mathematics","physical","education","challenge","intelligent","weird",
+		"vampire","compact","connoisseur","picture","adamant","template","perfection","direction","communication",
+		"integration","exchange","debenture","journal","research","synchronize","transmitter","readymade","caliber","potential",
+		"capacity","victory","soldier","assassination","preventive","contraceptive","follower","personal","wireless",
+		"programming","waterfalls","aesthetic","university","lieutenant","commander","artillery","tropical","sufficient",
+		"suggestive","jaunt","humanitarian","humungous","ecological","confession","confederation","consort","conspiracy","haunted",
+		"dexterity","devastated","emporium","encounter","compass","endothermic","exothermic","endorsement","enormous","fastidious",
+		"favourite","flamenco","flabby","flutter","flirtatious","glacial","gladden","glazed","glorified","glossy","glossary",
+		"glimmer","gnawing","gnomic","graceful","scorpio","scuzzy","secondary","seismograph","chromosome","selection","semester",
+		"senator","parliament","sensation","separation","musician","shallow","reference","termagant","termination","testimony",
+		"thesis","wrestling","wounded","wrangle","wretch","warranty","vinegar"};
+	
+	public static final String MyPrefs = "mySharedPreferences";
+	
+	private final static int Right_Answer = 1;
+	
+	private final static int Wrong_Answer = 2;
+	 
+	private int scoreCount = 0;
+	
+	private int highScore = 0; 
+	
+	private TextView questionView = null;
+	
+	private EditText answerView = null;
+	
+	private TextView score = null;
+
+	private Button checkButton = null;
+	
+	private String text;
+	
+	String word = "";
+	
+	String jumbled = "";
+	
+	int temp;
+	
+	int index = 12;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);  
+        
+         Toast.makeText(JumbleBeeActivity.this, 
+                "onCreate()", 
+                Toast.LENGTH_SHORT).cancel();
+        
+       checkButton = (Button) findViewById(R.id.check_button);
+       
+       answerView = (EditText) findViewById(R.id.answer_view);
+        
+       
+       checkButton.setOnClickListener(checkButtonListener);
+       index =  (int) Math.ceil(Math.random()*308); 
+         getReference();
+         loadPreferences();
+			setValue(index);  
+    }
+    
+    @Override
+    protected void onDestroy() {
+     super.onDestroy();
+     Toast.makeText(JumbleBeeActivity.this, 
+             "onDestroy()", 
+             Toast.LENGTH_SHORT).cancel();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+     super.onConfigurationChanged(newConfig);
+     Toast.makeText(JumbleBeeActivity.this, 
+             "onConfigurationChanged(): " + newConfig.toString(), 
+             Toast.LENGTH_SHORT).cancel();
+    }
+       
+    protected void savePreferences() {
+    	//create or retrieve the shared preference object
+    	int mode = Activity.MODE_PRIVATE;
+    	SharedPreferences mySharedPreferences = getSharedPreferences(MyPrefs, mode);
+    	//Retrieve an editor to modify the shared preferences
+    	SharedPreferences.Editor editor = mySharedPreferences.edit();
+    	//storing the score
+    	System.out.println("Passed highscore is: "+highScore);
+    	editor.putInt("ScoreValue", highScore);
+    	//commit the changes
+    	editor.commit();
+    	//call the setValue method
+    	//setValue(index);
+    }
+    
+    
+    public void loadPreferences() {
+    	//Get the stored preferences
+    	int mode = Activity.MODE_PRIVATE;
+    	SharedPreferences mySharedPreferences = getSharedPreferences(MyPrefs, mode);
+    	//Retrieve the saved preference
+    	int savedScore = mySharedPreferences.getInt("Scorevalue", highScore);
+    	TextView highScoreView = (TextView) findViewById(R.id.highScoreView);
+    	System.out.println("Print to screen is: "+savedScore);
+    	highScoreView.setText(String.valueOf(savedScore));
+    }
+    private void setValue(int index) {
+    	 
+    	
+    	word = word_list[index];
+    	System.out.println(word);
+    	Random r = new Random();
+    	for(int i=0;i<word.length();i++) {
+    		if(r.nextBoolean()) {
+    			jumbled = jumbled + word.charAt(i);
+    		}
+    		else {
+    			jumbled = word.charAt(i) + jumbled;
+    		}
+    	}   	
+    	answerView.setText("");  
+    	questionView.setText(jumbled);    	
+    	 }
+    
+    private void getReference() {
+    	questionView = (TextView)findViewById(R.id.questionText);
+    }
+    
+    
+    private OnClickListener checkButtonListener = new OnClickListener() {
+		
+		public void onClick(View v) {
+			answerView = (EditText)findViewById(R.id.answer_view);
+			
+			text = answerView.getText().toString();
+			
+			if(text.equals(word)) {
+				scoreCount++;
+				showDialog(Right_Answer);
+				
+			}
+			else {
+				showDialog(Wrong_Answer);
+			}
+		}
+	};
+    
+	private android.content.DialogInterface.OnClickListener dialogListener = new android.content.DialogInterface.OnClickListener() {
+		
+		public void onClick(DialogInterface arg0, int arg1) {
+			TextView correctAnswer = (TextView) findViewById(R.id.correctAnswer);
+			correctAnswer.setText("The previous answer was: "+word_list[index]);
+			jumbled = "";
+			index = (int) Math.ceil(Math.random()*308);
+			if(scoreCount>highScore) {
+				highScore = scoreCount;
+				System.out.println("Score to be passed is: "+highScore);
+				savePreferences();
+			}
+			score = (TextView) findViewById(R.id.score);
+			score.setText("Your score is:" +scoreCount);		
+			setValue(index);
+			
+			
+		}
+	};
+	
+	private android.content.DialogInterface.OnClickListener negativeDialogListener = new android.content.DialogInterface.OnClickListener() {
+		
+		public void onClick(DialogInterface dialog, int which) {
+			
+			finish();	
+		}
+	};
+	
+	@Override
+	
+	protected Dialog onCreateDialog(int id) {
+		Dialog dialog = null;
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setPositiveButton("Go", dialogListener)
+		.setCancelable(false);
+		builder.setNegativeButton("Quit", negativeDialogListener);
+		
+		switch(id) {
+		
+		case Right_Answer:
+			
+			builder.setMessage("Your Answer is correct,go to the next question?");
+			dialog = builder.create();
+			break;
+			
+	
+	case Wrong_Answer:
+			builder.setMessage("Your answer is wrong!"+"\n"+"Go to the next question?");
+			dialog = builder.create();
+			break;
+		}
+		return dialog;
+	}
+}
+
+
+
+
+
+	
